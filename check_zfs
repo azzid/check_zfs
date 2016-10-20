@@ -119,6 +119,27 @@ if (! open STAT, "$statcommand|") {
 	exit $ERRORS{$state};
 }
 
+# Output from zpool status below, is it compatible with the matching done?
+#
+#  pool: homepool
+# state: ONLINE
+#  scan: scrub repaired 0 in 6h37m with 0 errors on Wed Oct 19 15:23:30 2016
+#config:
+#
+#	NAME        STATE     READ WRITE CKSUM
+#	homepool    ONLINE       0     0     0
+#	  mirror-0  ONLINE       0     0     0
+#	    sdb     ONLINE       0     0     0
+#	    sdc     ONLINE       0     0     0
+#	    sdd     ONLINE       0     0     0
+#	  mirror-1  ONLINE       0     0     0
+#	    sde     ONLINE       0     0     0
+#	    sdf     ONLINE       0     0     0
+#	cache
+#	  sda4      ONLINE       0     0     0
+#
+#errors: No known data errors
+
 ## go through zfs status output to find zpool fses and devices
 while(<STAT>) {
 	chomp;
