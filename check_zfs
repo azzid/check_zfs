@@ -46,8 +46,8 @@ if ($#ARGV+1 != 2) {
 	exit $ERRORS{$state};
 }
 
-if ($^O ne 'solaris' && $^O ne 'freebsd') {
-	print "This plugin currently only works on Solaris 10, OpenSolaris distributions, and FreeBSD 7 and later.\n";
+if ($^O ne 'linux') {
+	print "This plugin has only been tested on Ubuntu 16.04, the original check worked on FreeBSD and Solaris however. YMMV.\n";
 	exit $ERRORS{$state};
 }
 
