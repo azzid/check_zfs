@@ -67,6 +67,9 @@ if ($verbose < 1 || $verbose > 3) {
 }
 
 my $statcommand="zpool list $pool";
+# Produces output like:
+#NAME       SIZE  ALLOC   FREE  EXPANDSZ   FRAG    CAP  DEDUP  HEALTH  ALTROOT
+#homepool  2,72T  1,62T  1,10T         -    38%    59%  1.00x  ONLINE  -
 
 if (! open STAT, "$statcommand|") {
 	print ("$state '$statcommand' command returns no result! NOTE: This plugin needs OS support for ZFS, and execution with root privileges.\n");
